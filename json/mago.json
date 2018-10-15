@@ -1,0 +1,252 @@
+{
+	"room": {
+		"torre": {
+            "description": "nella Torre dell'Arcimago",
+            "detail": "L'imponente Torre dell' Arcimago",
+			"direction": {
+				"s": "campagna"
+			}
+		},
+		"campagna": {
+			"description": "lungo una strada di campagna",
+            "detail": "una tranquilla strada di campagna",
+			"direction": {
+				"n": "torre",
+				"s": "villaggio",
+				"e": "stagno"
+			}
+		},
+		"stagno": {
+			"description": "sulle rive di uno stagno",
+            "detail": "una stagno acquitrinoso attorniato da intricate foreste",
+			"direction": {
+				"o": "campagna"
+			}
+		},
+		"villaggio": {
+            "description": "nel centro del villaggio",
+            "detail": "Il villaggio, insediamento principale della contea",
+			"direction": {
+				"n": "campagna",
+				"e": "taverna",
+				"o": "fucina"
+			}
+		},
+		"fucina": {
+			"description": "nella Fucina del villaggio",
+            "detail": "La fucina",
+			"direction": {
+				"e": "villaggio"
+			}
+		},
+		"taverna": {
+			"description": "nella taverna",
+            "detail": "La taverna",
+			"direction": {
+				"o": "villaggio"
+			}
+		}
+	},
+	"item": {
+		"arcimago": {
+			"position": "torre",
+			"description": "l'arcimago",
+			"detail": "L'arcimago Arciboldo, il più importante mago e alchimista di tutti i tempi... Relativamente a questa piccolissima contea."
+		},
+		"bacchetta": {
+			"position": "",
+			"description": "una bacchetta di legno",
+			"detail": "La bacchetta credo sia rotta. non trasmette la sua aura magica",
+			"pickable": true,
+			"action": {
+				"use":{
+					"cond:#torre": {
+						"win": ""
+					}
+				}
+			}
+		},
+		"colla": {
+			"position": "",
+			"description": "un tubetto di colla",
+			"detail": "un tubetto di colla",
+			"pickable": true
+		},
+		"richiamo": {
+			"position": "",
+			"description": "un richiamo per animali",
+			"detail": "un richiamo per animali",
+			"pickable": true,
+			"action": {
+				"use":{
+					"cond:#stagno": {
+						"say": "Uno stormo di pareroche si alza in volo. Passa velosemente sulla tua testa e lascia cadere qualcosa per terra.",
+						"obj": "bacchetta:stagno"
+					}
+				}
+			}
+		},
+		"fabbro": {
+			"position": "fucina",
+			"description": "il fabbro del villaggio",
+			"detail": "il fabbro del villaggio",
+			"action": {
+				"speak":{
+					"cond:": {
+						"say": "Il fabbro ti parla della sua passione per la caccia alle paperoche. E ti mostra il richiamo che ha creato.",
+						"obj": "richiamo:fucina"
+					}
+				}
+			}
+		},
+		"oste": {
+			"position": "",
+			"description": "l'oste della taverna",
+			"detail": "l'oste della taverna"
+		},
+		"fontana": {
+			"position": "villaggio",
+			"description": "una fontana al centro della piazza del villaggio",
+			"detail": "Una fontana in pietra decorata con bassorilievi che rappresentano epiche scena di battaglia tra maghi e giganti."
+		}
+	},
+	"trigger": {
+		":goto": {
+			"inc": "varMovimenti:1"
+		}
+	},
+	"config": {
+		"copyright": "Erebox 2017",
+		"init_room": "torre",
+		"init_var": {
+			"varWait":0
+
+		},
+		"intro": [
+			"*** Il mago triste - (C) Erebox 2017\n",
+			"\n",
+			"Un lungo singhiozzo riecheggia nella torre. \n",
+            "- Non trovo più la mia bacchetta... - piagnucola l'arcimago - Senza di lei mi sento nudo \n",
+            "Guardandoti con gli occhioni tristi e ricolmi di lacrime:\n",
+            "- Ti prego trovala e riportamela qui.\n",
+            "Tu in quanto suo fido aiutante, prendi a cuore la questione e inizi la ricerca.\n"
+		],
+		"victory": [
+			"L'arcimago ti abbraccia e ti ringrazia per ore ed ore.\n",
+			"Finalmente torna in possesso della sua preziosissima bacchetta magica. \n",
+			"Ecco cosa vuol dire essere un bravo aiutante.\n",
+			"\n",
+			"FINE"
+		],
+		"defeat": [
+			"Riprova... \n\nFINE"
+		],
+		"help": [
+			"Per muoverti usa le direzioni cardinali come 'vai a nord' (abbreviate anche in n,s,e,o). \n",
+			"Il comando 'guarda' permette di avere descrizioni approfondite degli oggetti presenti nell'ambiente. \n",
+			"Alcuni oggetti possono essere raccolti e deposti usando i comandi 'prendi' e 'posa' (o lascia). \n",
+			"Il comando 'inventario' (i) mostra una lista degli oggetti posseduti dal personaggio. \n",
+			"Ovviamente gli oggetti possono essere manipolati in altri modi più o meno logici; ",
+			"una torcia pu\u00F2 essere accesa o spenta (accendi la torcia/spegni la torcia), ",
+			"un pulsante pu\u00F2 essere premuto (premi il pulsante), ",
+			"un mobile pu\u00F2 essere spostato (sposta il mobile) o ",
+			"una porta pu\u00F2 essere aperta o chiusa (apri la porta/chiudi la porta). \n"
+		],		
+		"ignore": [
+			"a", "agli", "al", "all", "alla", "alle", "allo", "col", "con", "gli",
+			"i", "il", "l", "la", "le", "lo", "un", "una", "uno"
+		],
+        "direction": {
+            "n": [ "nord" ],
+            "s": [ "sud" ],
+            "e": [ "est" ],
+            "o": [ "ovest" ],
+            "a": [ "alto", "sali" ],
+            "b": [ "basso", "scendi" ]
+        }        
+	},
+	"action": {
+		"*": {
+			"what": "Cosa devo fare?",
+			"where": "Sei ",
+			"see": "Vedo ",
+			"parser_noverb" : "Non capisco il verbo",
+			"parser_noitem" : "Non capisco la parola",
+			"parser_say" : "Dimmi qualcosa...",
+			"done": "Fatto.",
+			"notseen": "Cosa?",
+			"notable": "Non ci riesci.",
+			"wip": "Non si pu\u00F2."
+		},
+		"inventory": {
+			"alias": [ "?", "inventario", "cosa", "i" ],
+			"got": "Possiedi:",
+			"none": "un bel nulla"
+		},
+		"look": {
+			"alias": [ "g", "guarda", "x", "esamina" ],
+			"none": "Non noto nulla di particolare."
+		},
+		"pickup": {
+			"alias": [ "prendi" ]
+		},
+		"leave": {
+			"alias": [ "lascia", "posa" ]
+		},
+		"open": {
+			"alias": [ "apri" ],
+			"already": "E' gi\u00E0 aperto.",
+			"notable": "Non mi sembra particolarmente apribile."
+		},
+		"close": {
+			"alias": [ "chiudi" ],
+			"already": "E' gi\u00E0 chiuso.",
+			"notable": "Dato che non si pu\u00F2 aprire, non si pu\u00F2 chiudere"
+		},
+		"remove": {
+			"alias": [ "uccidi", "ammazza", "attacca", "colpisci" ]
+		},
+		"eat": {
+			"alias": [ "bevi", "mangia" ]
+		},
+		"use": {
+			"alias": [ "usa", "adopera" ],
+			"notable": "Non si pu\u00F2."
+		},
+		"speak": {
+			"alias": [ "parla", "chiacchera", "saluta" ],
+			"none": "Parlare a vanvera non risolve il tuo problema."
+		},		
+		"help": {
+			"alias": [ "aiuto" ]
+		},
+		"exit": {
+			"alias": [ "end", "exit", "basta", "fine", "x", "crepa", "muori" ],
+			"done": "E' stato bello giocare con te!\n\nFINE"
+		},
+		"goto": {
+			"alias": [ "cammina", "muovi", "vai" ],
+			"noitem": "Dove? Indica una direzione (N, S, E, O)",
+			"notable": "Non puoi andare di l\u00E0"
+		},
+		"save": {
+			"alias": [ "salva" ]
+		},
+		"load": {
+			"alias": [ "riprendi" ]
+		},
+		"swear": {
+			"alias": [ "fottiti", "fanculo" ]
+		},
+		"on": {
+			"alias": [ "accendi" ]
+		},
+		"off": {
+			"alias": [ "spegni" ]
+		},
+		"score": {
+			"alias": [ "punti", "punteggio" ]
+		}
+		
+	}
+}

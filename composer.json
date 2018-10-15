@@ -1,0 +1,5 @@
+{
+    "require": {
+        "erebox/text-adventure-engine": "^1.0"
+    }
+}
