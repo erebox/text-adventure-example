@@ -2,14 +2,12 @@
 	"room": {
 		"torre": {
             "description": "nella Torre dell'Arcimago",
-            "detail": "L'imponente Torre dell' Arcimago",
 			"direction": {
 				"s": "campagna"
 			}
 		},
 		"campagna": {
 			"description": "lungo una strada di campagna",
-            "detail": "una tranquilla strada di campagna",
 			"direction": {
 				"n": "torre",
 				"s": "villaggio",
@@ -18,14 +16,12 @@
 		},
 		"stagno": {
 			"description": "sulle rive di uno stagno",
-            "detail": "una stagno acquitrinoso attorniato da intricate foreste",
 			"direction": {
 				"o": "campagna"
 			}
 		},
 		"villaggio": {
             "description": "nel centro del villaggio",
-            "detail": "Il villaggio, insediamento principale della contea",
 			"direction": {
 				"n": "campagna",
 				"e": "taverna",
@@ -34,14 +30,12 @@
 		},
 		"fucina": {
 			"description": "nella Fucina del villaggio",
-            "detail": "La fucina",
 			"direction": {
 				"e": "villaggio"
 			}
 		},
 		"taverna": {
 			"description": "nella taverna",
-            "detail": "La taverna",
 			"direction": {
 				"o": "villaggio"
 			}
@@ -51,17 +45,27 @@
 		"arcimago": {
 			"position": "torre",
 			"description": "l'arcimago",
-			"detail": "L'arcimago Arciboldo, il più importante mago e alchimista di tutti i tempi... Relativamente a questa piccolissima contea."
+			"action": {
+				"look": {
+					"*": {
+						"say": ["L'arcimago Arciboldo, il più importante mago e alchimista di tutti i tempi... Relativamente a questa piccolissima contea."]
+					}
+				}
+			}
 		},
 		"bacchetta": {
 			"position": "",
 			"description": "una bacchetta di legno",
-			"detail": "La bacchetta credo sia rotta. non trasmette la sua aura magica",
 			"pickable": true,
 			"action": {
 				"use":{
 					"cond:#torre": {
 						"win": ""
+					}
+				},
+				"look": {
+					"*": {
+						"say": ["La bacchetta credo sia rotta. non trasmette la sua aura magica"]
 					}
 				}
 			}
@@ -120,16 +124,15 @@
 		"init_room": "torre",
 		"init_var": {
 			"varWait":0
-
 		},
 		"intro": [
 			"*** Il mago triste - (C) Erebox 2017\n",
 			"\n",
 			"Un lungo singhiozzo riecheggia nella torre. \n",
-            "- Non trovo più la mia bacchetta... - piagnucola l'arcimago - Senza di lei mi sento nudo \n",
+            "- Non trovo più la mia bacchetta... - piagnucola l'arcimago - Senza di lei mi sento nudo.\n",
             "Guardandoti con gli occhioni tristi e ricolmi di lacrime:\n",
             "- Ti prego trovala e riportamela qui.\n",
-            "Tu in quanto suo fido aiutante, prendi a cuore la questione e inizi la ricerca.\n"
+            "Tu, in quanto suo fido aiutante, prendi a cuore la questione e inizi la ricerca.\n"
 		],
 		"victory": [
 			"L'arcimago ti abbraccia e ti ringrazia per ore ed ore.\n",
