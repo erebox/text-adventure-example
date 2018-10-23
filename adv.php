@@ -25,13 +25,11 @@
     }
 
     if ($data) {
-        if ($data == "DEBUG") {
-            print_r(json_encode($adv->debug()));
-            $game_json = file_get_contents($quest);
-            $adv = new Engine($game_json);
-            exit();
+        if ($data == "RESTART") {
+            $adv->restart();
+        } else {
+            $adv->parse($data);
         }
-        $adv->parse($data);
     }
     $response = $adv->get();
 
