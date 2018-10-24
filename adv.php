@@ -11,6 +11,10 @@
         unset($_SESSION['adv']);
         exit();
     }
+    if ($data == "INFO") {
+        phpinfo();
+        exit();
+    }
 
     if (isset($_SESSION['adv'])) {
         $adv = unserialize($_SESSION['adv']);
