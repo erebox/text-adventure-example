@@ -5,7 +5,7 @@
 
     $data = (isset($_REQUEST['data'])? $_REQUEST['data'] : null);
     $response = [];
-    $quest = "json/mago.json";
+    $quest = "json/test.json";
 
     if ($data == "RESET") {
         unset($_SESSION['adv']);
