@@ -26,7 +26,7 @@
 	},
 	"lang": "it",
 	"config": {
-		"init": "camera",
+		"init_room": "camera",
 		"variable": {
 			"varWait":0
 		},
